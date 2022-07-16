@@ -1,22 +1,17 @@
 const chkInterestsActive = document.querySelectorAll('.interests.interests_active');
 const chkInterests = document.querySelectorAll('input');
 
-chkInterests[0].addEventListener('change', (e) => {
-	if ((chkInterests[1].checked == false || chkInterests[2].checked == false)) {
-		chkInterests[1].checked = true
-		chkInterests[2].checked = true 
+function changeCheckbox(chk1, chk2, chk3) {
+	chkInterests[chk1].addEventListener('change', (e) => {
+	if (chkInterests[chk2].checked == false || chkInterests[chk3].checked == false) {
+		chkInterests[chk2].checked = true
+		chkInterests[chk3].checked = true 
 	} else {
-		chkInterests[1].checked = false
-		chkInterests[2].checked = false 
+		chkInterests[chk2].checked = false
+		chkInterests[chk3].checked = false 
 	}
-});
+})
+};
 
-chkInterests[3].addEventListener('change', (e) => {
-	if ((e.target.parentNode.parentNode.classList == 'interest') && (chkInterests[4].checked == false || chkInterests[5].checked == false)) {
-		chkInterests[4].checked = true
-		chkInterests[5].checked = true 
-	} else {
-		chkInterests[4].checked = false
-		chkInterests[5].checked = false 
-	}
-});
+changeCheckbox(0, 1, 2);
+changeCheckbox(3, 4, 5);
