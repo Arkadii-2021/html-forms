@@ -1,4 +1,3 @@
-const chkInterestsActive = document.querySelectorAll('.interests.interests_active');
 const chkInterests = document.querySelectorAll('input');
 
 function changeCheckbox(chk1, chk2, chk3) {
