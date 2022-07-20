@@ -1,16 +1,16 @@
-const chkInterests = document.querySelectorAll('input');
+const chkElements = document.getElementsByTagName('input');
 
-function changeCheckbox(chk1, chk2, chk3) {
-	chkInterests[chk1].addEventListener('change', (e) => {
-	if (chkInterests[chk2].checked == false || chkInterests[chk3].checked == false) {
-		chkInterests[chk2].checked = true
-		chkInterests[chk3].checked = true 
-	} else {
-		chkInterests[chk2].checked = false
-		chkInterests[chk3].checked = false 
+Array.from(chkElements).forEach((c, i) => {
+	if (c.closest('ul.interests.interests_active') == null) {
+		c.addEventListener('change', (e) => {
+			Array.from(e.target.closest('li.interest').lastElementChild.children).forEach(chkEl => {
+				if (e.target.checked == true) {
+					chkEl.firstChild.nextSibling.firstChild.nextSibling.checked = true;
+				} else {
+					chkEl.firstChild.nextSibling.firstChild.nextSibling.checked = false;
+				}
+			})
+			
+		})
 	}
-})
-};
-
-changeCheckbox(0, 1, 2);
-changeCheckbox(3, 4, 5);
+});
